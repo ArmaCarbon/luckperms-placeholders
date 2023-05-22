@@ -99,31 +99,31 @@ class DurationFormatter {
 
     // Taken from https://github.com/lucko/LuckPerms/blob/master/common/src/main/resources/luckperms_en.properties
     private static final Map<String, String> TRANSLATIONS = ImmutableMap.<String, String>builder()
-            .put("luckperms.duration.unit.years.plural", "%s years")
-            .put("luckperms.duration.unit.years.singular", "%s year")
-            .put("luckperms.duration.unit.years.short", "%sy")
-            .put("luckperms.duration.unit.months.plural", "%s months")
-            .put("luckperms.duration.unit.months.singular", "%s month")
-            .put("luckperms.duration.unit.months.short", "%smo")
-            .put("luckperms.duration.unit.weeks.plural", "%s weeks")
-            .put("luckperms.duration.unit.weeks.singular", "%s week")
-            .put("luckperms.duration.unit.weeks.short", "%sw")
-            .put("luckperms.duration.unit.days.plural", "%s days")
-            .put("luckperms.duration.unit.days.singular", "%s day")
+            .put("luckperms.duration.unit.years.plural", "%s anos")
+            .put("luckperms.duration.unit.years.singular", "%s ano")
+            .put("luckperms.duration.unit.years.short", "%sa")
+            .put("luckperms.duration.unit.months.plural", "%s meses")
+            .put("luckperms.duration.unit.months.singular", "%s mes")
+            .put("luckperms.duration.unit.months.short", "%smes")
+            .put("luckperms.duration.unit.weeks.plural", "%s semanas")
+            .put("luckperms.duration.unit.weeks.singular", "%s semana")
+            .put("luckperms.duration.unit.weeks.short", "%ssem")
+            .put("luckperms.duration.unit.days.plural", "%s dias")
+            .put("luckperms.duration.unit.days.singular", "%s dia")
             .put("luckperms.duration.unit.days.short", "%sd")
-            .put("luckperms.duration.unit.hours.plural", "%s hours")
-            .put("luckperms.duration.unit.hours.singular", "%s hour")
+            .put("luckperms.duration.unit.hours.plural", "%s horas")
+            .put("luckperms.duration.unit.hours.singular", "%s hora")
             .put("luckperms.duration.unit.hours.short", "%sh")
-            .put("luckperms.duration.unit.minutes.plural", "%s minutes")
-            .put("luckperms.duration.unit.minutes.singular", "%s minute")
+            .put("luckperms.duration.unit.minutes.plural", "%s minutos")
+            .put("luckperms.duration.unit.minutes.singular", "%s minuto")
             .put("luckperms.duration.unit.minutes.short", "%sm")
-            .put("luckperms.duration.unit.seconds.plural", "%s seconds")
-            .put("luckperms.duration.unit.seconds.singular", "%s second")
+            .put("luckperms.duration.unit.seconds.plural", "%s segundos")
+            .put("luckperms.duration.unit.seconds.singular", "%s segundo")
             .put("luckperms.duration.unit.seconds.short", "%ss")
             .build();
     
     private String formatPart(long amount, ChronoUnit unit) {
-        String format = this.concise ? "short" : amount == 1 ? "singular" : "plural";
+        String format = amount == 1 ? "singular" : "plural";
         String translationKey = "luckperms.duration.unit." + unit.name().toLowerCase(Locale.ROOT) + "." + format;
         return String.format(TRANSLATIONS.get(translationKey), amount);
     }
